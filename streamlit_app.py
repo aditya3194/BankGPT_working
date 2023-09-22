@@ -1,55 +1,38 @@
 import streamlit as st
-from hugchat import hugchat
-from hugchat.login import Login
+from langchain import OpenAI
+from langchain.docstore.document import Document
+from langchain.text_splitter import CharacterTextSplitter
+from langchain.chains.summarize import load_summarize_chain
 
-# App title
-st.set_page_config(page_title="🤗💬 HugChat")
+def generate_response(txt):
+    # Instantiate the LLM model
+    llm = OpenAI(temperature=0, openai_api_key=openai_api_key)
+    # Split text
+    text_splitter = CharacterTextSplitter()
+    texts = text_splitter.split_text(txt)
+    # Create multiple documents
+    docs = [Document(page_content=t) for t in texts]
+    # Text summarization
+    chain = load_summarize_chain(llm, chain_type='map_reduce')
+    return chain.run(docs)
 
-# Hugging Face Credentials
-with st.sidebar:
-    st.title('🤗💬 HugChat')
-    if ('EMAIL' in st.secrets) and ('PASS' in st.secrets):
-        st.success('HuggingFace Login credentials already provided!', icon='✅')
-        hf_email = st.secrets['EMAIL']
-        hf_pass = st.secrets['PASS']
-    else:
-        hf_email = st.text_input('Enter E-mail:', type='password')
-        hf_pass = st.text_input('Enter password:', type='password')
-        if not (hf_email and hf_pass):
-            st.warning('Please enter your credentials!', icon='⚠️')
-        else:
-            st.success('Proceed to entering your prompt message!', icon='👉')
-    st.markdown('📖 Learn how to build this app in this [blog](https://blog.streamlit.io/how-to-build-an-llm-powered-chatbot-with-streamlit/)!')
-    
-# Store LLM generated responses
-if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "How may I help you?"}]
+# Page title
+st.set_page_config(page_title='🦜🔗 Text Summarization App')
+st.title('🦜🔗 Text Summarization App')
 
-# Display chat messages
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.write(message["content"])
+# Text input
+txt_input = st.text_area('Enter your text', '', height=200)
 
-# Function for generating LLM response
-def generate_response(prompt_input, email, passwd):
-    # Hugging Face Login
-    sign = Login(email, passwd)
-    cookies = sign.login()
-    # Create ChatBot                        
-    chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
-    return chatbot.chat(prompt_input)
+# Form to accept user's text input for summarization
+result = []
+with st.form('summarize_form', clear_on_submit=True):
+    openai_api_key = st.text_input('OpenAI API Key', type = 'password', disabled=not txt_input)
+    submitted = st.form_submit_button('Submit')
+    if submitted and openai_api_key.startswith('sk-'):
+        with st.spinner('Calculating...'):
+            response = generate_response(txt_input)
+            result.append(response)
+            del openai_api_key
 
-# User-provided prompt
-if prompt := st.chat_input(disabled=not (hf_email and hf_pass)):
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.write(prompt)
-
-# Generate a new response if last message is not from assistant
-if st.session_state.messages[-1]["role"] != "assistant":
-    with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
-            response = generate_response(prompt, hf_email, hf_pass) 
-            st.write(response) 
-    message = {"role": "assistant", "content": response}
-    st.session_state.messages.append(message)
+if len(result):
+    st.info(response)
