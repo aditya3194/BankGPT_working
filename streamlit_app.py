@@ -15,7 +15,7 @@ import os
 api_key = "n2MmHrp8oJtSLRtPN4YEs9aJXm1TFi3X6pHNyjtt"
 
 # Set up Cohere client
-co = cohere.Client(api_key)
+co = cohere.Client("n2MmHrp8oJtSLRtPN4YEs9aJXm1TFi3X6pHNyjtt")
 
 command_model = "command-xlarge-20221108"
 few_shot = "xlarge-20221108"
