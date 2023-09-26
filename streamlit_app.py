@@ -35,11 +35,11 @@ def generate_response(prompt_input):
     )
     return response.text
 
-# # User-provided prompt
-# if prompt := st.chat_input():
-#     st.session_state.messages.append({"role": "user", "content": prompt})
-#     with st.chat_message("user"):
-#         st.write(prompt)
+# User-provided prompt
+if prompt := st.chat_input():
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
+        st.write(prompt)
 	    
 
 if st.session_state.messages[-1]["role"] != "assistant":
