@@ -27,10 +27,11 @@ for message in st.session_state.messages:
         st.write(message["content"])
 
 # Function for generating LLM response
-def generate_response(prompt_input):
+def generate_response(prompt_input,message):
     response = co.chat(
 	prompt_input, 
 	model="command-nightly", 
+	chat_history= message,
 	temperature=0.3
     )
     return response.text
@@ -45,7 +46,7 @@ if prompt := st.chat_input():
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            response = generate_response(prompt) 
+            response = generate_response(prompt,message) 
             st.write(response) 
     message = {"role": "assistant", "content": response}
     st.session_state.messages.append(message)
