@@ -2,7 +2,7 @@ import streamlit as st
 from hugchat import hugchat
 from hugchat.login import Login
 import cohere
-co = cohere.Client('c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ')
+
 
 # App title
 st.set_page_config(page_title="India MoF-WIP")
@@ -21,7 +21,7 @@ def generate_response(prompt_input):
     response = co.chat(
 	prompt_input, 
 	model="command", 
-	temperature=0.9
+	temperature=0.3
     )
     return response.text
 
@@ -30,12 +30,18 @@ if prompt := st.chat_input():
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.write(prompt)
+	    
+with st.form('myform', clear_on_submit=True):
+    openai_api_key = st.text_input('Cohere API Key', type='password')
+    submitted = st.form_submit_button('Submit')
+    if submitted:
+	    co = cohere.Client(openai_api_key)
+        if st.session_state.messages[-1]["role"] != "assistant":
+            with st.chat_message("assistant"):
+                with st.spinner("Thinking..."):
+                    response = generate_response(prompt) 
+                    st.write(response) 
+            message = {"role": "assistant", "content": response}
+            st.session_state.messages.append(message)
 
-# Generate a new response if last message is not from assistant
-if st.session_state.messages[-1]["role"] != "assistant":
-    with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
-            response = generate_response(prompt) 
-            st.write(response) 
-    message = {"role": "assistant", "content": response}
-    st.session_state.messages.append(message)
+
