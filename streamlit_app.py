@@ -31,7 +31,7 @@ if prompt := st.chat_input():
     with st.chat_message("user"):
         st.write(prompt)
 	    
-with st.form('myform', clear_on_submit=True):
+with st.form('myform'):
     openai_api_key = st.text_input('Cohere API Key', type='password')
     submitted = st.form_submit_button('Submit')
     if submitted:
