@@ -7,6 +7,9 @@ import cohere
 # App title
 st.set_page_config(page_title="India MoF-WIP")
 
+openai_api_key = st.text_input('Cohere API Key')
+co = cohere.Client(openai_api_key)
+
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
     st.session_state.messages = [{"role": "assistant", "content": "How may I help you?"}]
@@ -31,8 +34,7 @@ def generate_response(prompt_input):
 #     with st.chat_message("user"):
 #         st.write(prompt)
 	    
-openai_api_key = st.text_input('Cohere API Key')
-co = cohere.Client(openai_api_key)
+
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
