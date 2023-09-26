@@ -35,13 +35,13 @@ with st.form('myform', clear_on_submit=True):
     openai_api_key = st.text_input('Cohere API Key', type='password')
     submitted = st.form_submit_button('Submit')
     if submitted:
-	    co = cohere.Client(openai_api_key)
-            if st.session_state.messages[-1]["role"] != "assistant":
-		    with st.chat_message("assistant"):
+	co = cohere.Client(openai_api_key)
+	if st.session_state.messages[-1]["role"] != "assistant":
+		with st.chat_message("assistant"):
                 	with st.spinner("Thinking..."):
                     		response = generate_response(prompt) 
                   		st.write(response) 
-            	    message = {"role": "assistant", "content": response}
-            	    st.session_state.messages.append(message)
+            	message = {"role": "assistant", "content": response}
+            	st.session_state.messages.append(message)
 
 
