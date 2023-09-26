@@ -41,5 +41,5 @@ with st.form('myform', clear_on_submit=True):
 			    with st.spinner("Thinking..."):
 				    response = generate_response(prompt) 
 				    st.write(response) 
-	    	   message = {"role": "assistant", "content": response}
-                   st.session_state.messages.append(message)
+	    	   # message = {"role": "assistant", "content": response}
+         #           st.session_state.messages.append(message)
