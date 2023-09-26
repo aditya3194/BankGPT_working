@@ -7,7 +7,14 @@ import cohere
 # App title
 st.set_page_config(page_title="India MoF-WIP")
 
-openai_api_key = st.text_input('Cohere API Key')
+with st.sidebar:
+	st.title('India MoF')
+	openai_api_key = st.text_input('Cohere API Key')
+	if not (openai_api_key):
+	    st.warning('Please enter your credentials!', icon='⚠️')
+	else:
+	    st.success('Proceed to entering your prompt message!', icon='👉')
+
 co = cohere.Client(openai_api_key)
 
 # Store LLM generated responses
