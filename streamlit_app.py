@@ -10,6 +10,7 @@ st.set_page_config(page_title="India MoF-WIP")
 with st.sidebar:
 	st.title('India MoF')
 	openai_api_key = st.text_input('Cohere API Key')
+	st.button('Hit me!')
 	if not (openai_api_key):
 	    st.warning('Please enter your credentials!', icon='⚠️')
 	else:
