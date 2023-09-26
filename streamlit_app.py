@@ -5,7 +5,7 @@ import cohere
 co = cohere.Client('c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ')
 
 # App title
-st.set_page_config(page_title="🤗💬 HugChat")
+st.set_page_config(page_title="India MoF-WIP")
 
 # Hugging Face Credentials
 # with st.sidebar:
