@@ -30,7 +30,7 @@ for message in st.session_state.messages:
 def generate_response(prompt_input):
     response = co.chat(
 	prompt_input, 
-	model="command", 
+	model="command-nightly", 
 	temperature=0.3
     )
     return response.text
