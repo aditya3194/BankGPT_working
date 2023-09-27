@@ -27,15 +27,21 @@ if "messages" not in st.session_state.keys():
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
+chat_history = []
 
-# Function for generating LLM response
 def generate_response(prompt_input,message):
-    response = co.chat(
+	response = co.chat(
 	prompt_input, 
 	model="command-nightly", 
-	# chat_history= message,
+	# chat_history= chat_history,
 	temperature=0.3
     )
+	user_message = {"user_name": "User", "text": prompt_input}
+	bot_message = {"user_name": "Chatbot", "text": response.text}
+	
+	chat_history.append(user_message)
+	chat_history.append(bot_message)
+	
     return response.text
 
 # User-provided prompt
