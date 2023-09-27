@@ -11,7 +11,7 @@ st.title("Banking Chatbot")
 def generate_response(user_input):
     try:
         response = openai.Completion.create(
-            engine="davinci",
+            engine="gpt-3.5-turbo",
             prompt=f"User: {user_input}\nChatGPT:",
             max_tokens=50,  # Adjust the response length as needed
             temperature=0.7,  # Adjust the temperature for creativity
