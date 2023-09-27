@@ -33,7 +33,7 @@ def generate_response(prompt_input,message):
     response = co.chat(
 	prompt_input, 
 	model="command-nightly", 
-	chat_history= message,
+	# chat_history= message,
 	temperature=0.3
     )
     return response.text
@@ -44,7 +44,7 @@ if prompt := st.chat_input():
     with st.chat_message("user"):
         st.write(prompt)
 	    
-
+st.text( st.session_state.messages)
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
