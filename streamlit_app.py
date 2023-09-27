@@ -35,14 +35,13 @@ def generate_response(prompt_input,message):
 	model="command-nightly", 
 	chat_history= chat_history,
 	temperature=0.3
-    )
+    	)
 	user_message = {"user_name": "User", "text": prompt_input}
 	bot_message = {"user_name": "Chatbot", "text": response.text}
 	
 	chat_history.append(user_message)
 	chat_history.append(bot_message)
-	
-    	return response.text
+	return response.text
 
 # User-provided prompt
 if prompt := st.chat_input():
