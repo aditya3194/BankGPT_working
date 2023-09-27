@@ -22,7 +22,7 @@ def generate_response(user_input):
 
 # Streamlit UI
 with st.form(key='chat_form'):
-    user_message = st.text_input("You:", key='user_input')
+    user_message = st.text_input("Message:", key='user_input')
     submit_button = st.form_submit_button(label='Send')
 
 if submit_button:
