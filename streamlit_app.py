@@ -10,7 +10,7 @@ st.title("Banking Chatbot")
 # Function to generate responses using ChatGPT
 def generate_response(user_input):
     try:
-        response = openai.Completion.create(
+        response = openai.ChatCompletion.create(
             engine="gpt-3.5-turbo",
             prompt=f"User: {user_input}\nChatGPT:",
             max_tokens=50,  # Adjust the response length as needed
