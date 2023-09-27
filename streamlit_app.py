@@ -33,7 +33,7 @@ def generate_response(prompt_input,message):
 	response = co.chat(
 	prompt_input, 
 	model="command-nightly", 
-	# chat_history= chat_history,
+	chat_history= chat_history,
 	temperature=0.3
     )
 	user_message = {"user_name": "User", "text": prompt_input}
