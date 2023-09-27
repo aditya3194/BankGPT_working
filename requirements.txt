@@ -1,3 +1,4 @@
 cohere
 numpy
 streamlit
+transformers
