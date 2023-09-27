@@ -2,3 +2,4 @@ cohere
 numpy
 streamlit
 transformers
+openai
