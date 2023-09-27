@@ -1,38 +1,30 @@
 import streamlit as st
 import openai
 
-# Set your OpenAI API key
-openai.api_key = "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"
+# Set your OpenAI API key here
+api_key = "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"
+openai.api_key = api_key
+
+# Define a function to interact with the ChatGPT model
+def chat_with_gpt3(prompt):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful banking chatbot."},
+            {"role": "user", "content": prompt},
+        ],
+    )
+    return response.choices[0].message["content"]
 
 # Create a Streamlit app
 st.title("Banking Chatbot")
 
-# Function to generate responses using ChatGPT
-def generate_response(user_input):
-    try:
-        response = openai.ChatCompletion.create(
-            engine="gpt-3.5-turbo",
-            prompt=f"User: {user_input}\nChatGPT:",
-            max_tokens=50,  # Adjust the response length as needed
-            temperature=0.7,  # Adjust the temperature for creativity
-        )
-        return response.choices[0].text.strip()
-    except Exception as e:
-        return str(e)
+# Define a text input for user messages
+user_input = st.text_input("You:", "")
 
-# Streamlit UI
-with st.form(key='chat_form'):
-    user_message = st.text_input("Message:", key='user_input')
-    submit_button = st.form_submit_button(label='Send')
-
-if submit_button:
-    if user_message:
+# Handle user input and display responses
+if st.button("Send"):
+    if user_input:
         st.text("ChatGPT:")
-        response = generate_response(user_message)
-        st.write(response)
-    else:
-        st.warning("Please enter a message.")
-
-# Instructions
-st.info("This is a banking chatbot powered by ChatGPT. Ask questions or seek assistance about banking services.")
-
+        chat_response = chat_with_gpt3(user_input)
+        st.text(chat_response)
