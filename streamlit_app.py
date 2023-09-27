@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 
 # Set your OpenAI API key
-openai.api_key = "YOUR_API_KEY"
+openai.api_key = "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"
 
 # Create a Streamlit app
 st.title("Banking Chatbot")
