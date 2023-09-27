@@ -42,7 +42,7 @@ def generate_response(prompt_input,message):
 	chat_history.append(user_message)
 	chat_history.append(bot_message)
 	
-    return response.text
+    	return response.text
 
 # User-provided prompt
 if prompt := st.chat_input():
