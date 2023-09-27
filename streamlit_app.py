@@ -1,20 +1,38 @@
 import streamlit as st
-from transformers import pipeline
+import openai
 
-# Load the chatbot model
-model = pipeline("text-generation", model="cardiff-nlp/twitter-roberta-base-chatbot")
+# Set your OpenAI API key
+openai.api_key = "YOUR_API_KEY"
 
-# Define the banking dataset
-banking_data = ["What is the interest rate for a savings account?", "How do I deposit money into my account?", "What is the routing number for my bank?"]
+# Create a Streamlit app
+st.title("Banking Chatbot")
 
-# Define the chatbot UI
-ui = st.sidebar.select_option("Select a conversation topic", banking_data)
+# Function to generate responses using ChatGPT
+def generate_response(user_input):
+    try:
+        response = openai.Completion.create(
+            engine="davinci",
+            prompt=f"User: {user_input}\nChatGPT:",
+            max_tokens=50,  # Adjust the response length as needed
+            temperature=0.7,  # Adjust the temperature for creativity
+        )
+        return response.choices[0].text.strip()
+    except Exception as e:
+        return str(e)
 
-# Start the chatbot
-st.sidebar.chatbot(model, ui)
+# Streamlit UI
+with st.form(key='chat_form'):
+    user_message = st.text_input("You:", key='user_input')
+    submit_button = st.form_submit_button(label='Send')
 
-# Train the chatbot
-st.sidebar.train_chatbot(model, banking_data)
+if submit_button:
+    if user_message:
+        st.text("ChatGPT:")
+        response = generate_response(user_message)
+        st.write(response)
+    else:
+        st.warning("Please enter a message.")
 
-# Run the chatbot
-st.sidebar.run_chatbot(model, ui)
+# Instructions
+st.info("This is a banking chatbot powered by ChatGPT. Ask questions or seek assistance about banking services.")
+
