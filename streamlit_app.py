@@ -23,25 +23,25 @@ responses = {
 
 }
 
-with st.sidebar:
-       st.title('India MoF')
+# with st.sidebar:
+#        st.title('India MoF')
 
-       st.text('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') # OPenAI key
-       openai.api_key = st.text_input('Add your Open AI API Key')
+#        st.text('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') # OPenAI key
+#        openai.api_key = st.text_input('Add your Open AI API Key')
        
-    #    st.text('c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ') # Cohere Key
-    #    cohere_api_key = st.text_input('Add your Cohere API Key')
-	#    cohere_api_key = 'c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ'
+#     #    st.text('c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ') # Cohere Key
+#     #    cohere_api_key = st.text_input('Add your Cohere API Key')
+# 	#    cohere_api_key = 'c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ'
 
-       st.button('Proceed!')
-       st.warning('Please enter your credentials and click proceed!', icon='⚠️')
-    #    if not (cohere_api_key):
-    #           st.warning('Please enter your credentials!', icon='⚠️')
-    #    else:
-    #           st.success('Proceed to entering your prompt message!', icon='👉')
+#        st.button('Proceed!')
+#        st.warning('Please enter your credentials and click proceed!', icon='⚠️')
+#     #    if not (cohere_api_key):
+#     #           st.warning('Please enter your credentials!', icon='⚠️')
+#     #    else:
+#     #           st.success('Proceed to entering your prompt message!', icon='👉')
 
-
-# co = cohere.Client(cohere_api_key)
+cohere_api_key = 'c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ'
+co = cohere.Client(cohere_api_key)
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
@@ -91,7 +91,7 @@ if prompt := st.chat_input():
         st.write(prompt)
 
 load ='''
-    Instructions: Consider that you are helpful chatbot for Indian bank, helping customer visiting bank by filling their forms. Anser customer questions in Hindi language if possible
+    Instructions: Consider that you are helpful chatbot for Indian bank employee, helping customer in every possible way by respondnig them back with human like conversation.
 '''
 
 if st.session_state.messages[-1]["role"] != "assistant":
@@ -101,8 +101,8 @@ if st.session_state.messages[-1]["role"] != "assistant":
                         time.sleep(random.randint(1,3))
                         response = responses[prompt]
                 else:
-                        # response = generate_response_co(load+prompt)
-                        response = generate_response_oi(load+prompt)
+                        response = generate_response_co(load+prompt)
+                        # response = generate_response_oi(load+prompt)
     st.write(response)
     message = {"role": "assistant", "content":response}
     st.session_state.messages.append(message)
