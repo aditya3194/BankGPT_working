@@ -18,8 +18,8 @@ responses = {
 
 with st.sidebar:
        st.title('India MoF')
-       st.text('c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ')
-       openai_api_key = st.text_input('Cohere API Key')
+    #    st.text('c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ')
+    #    openai_api_key = st.text_input('Cohere API Key')
        cohere_api_key = 'c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ'
        openai.api_key = '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'
        st.button('Proceed!')
