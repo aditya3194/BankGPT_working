@@ -58,7 +58,7 @@ A: I am bankGPT, happy to help you
 Q2. Do I need to enter my middle name?
 A: No, provide me you account number
 End of instructions. 
-Who are you?'''
+'''
 
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
