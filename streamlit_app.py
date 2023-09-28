@@ -2,6 +2,7 @@ import streamlit as st
 import cohere
 import random
 import time
+import openai
 
 # App title
 st.set_page_config(page_title="India MoF-WIP")
@@ -19,14 +20,17 @@ with st.sidebar:
 		st.title('India MoF')
 		# st.text('c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ')
 		# openai_api_key = st.text_input('Cohere API Key')
-		openai_api_key = 'c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ'
+		cohere_api_key = 'c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ'
+        openai.api_key = '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 
 		st.button('Proceed!')
 		if not (openai_api_key):
 			st.warning('Please enter your credentials!', icon='⚠️')
 		else:
 			st.success('Proceed to entering your prompt message!', icon='👉')
 
-co = cohere.Client(openai_api_key)
+co = cohere.Client(cohere_api_key)
+
+co = openai.
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
@@ -38,8 +42,23 @@ for message in st.session_state.messages:
         st.write(message["content"])
 chat_history = []
 
+# OpenAI function
+def generate_response_oi(prompt_input):
+        response = openai.ChatCompletion.create(
+  			model="gpt-3.5-turbo",
+			messages=[
+					{"role": "system", "content": "You are a helpful assistant."},
+					{"role": "user", "content": prompt_input},
+				]
+				)
+        user_message = {"user_name": "User", "text": prompt_input}
+        bot_message = {"user_name": "Chatbot", "text": response['choices'][0]['message']['content']}
+        chat_history.append(user_message)
+        chat_history.append(bot_message)
+        return response['choices'][0]['message']['content']
 
-def generate_response(prompt_input):
+# Cohere function
+def generate_response_co(prompt_input):
 		response = co.chat(
 		prompt_input, 
 		model="command-nightly", 
@@ -48,8 +67,6 @@ def generate_response(prompt_input):
 		)
 		user_message = {"user_name": "User", "text": prompt_input}
 		bot_message = {"user_name": "Chatbot", "text": response.text}
-
-
 		chat_history.append(user_message)
 		chat_history.append(bot_message)
 		
@@ -62,7 +79,7 @@ if prompt := st.chat_input():
         st.write(prompt)
 
 load ='''
-    Instructions: Consider that you are bankGPT helping customer visiting bank by filling their forms. Reply bank in Hindi language if possible
+    Instructions: Consider that you are helpful chatbot for Indian bank, helping customer visiting bank by filling their forms. Reply bank in Hindi language if possible
 '''
 
 if st.session_state.messages[-1]["role"] != "assistant":
@@ -72,7 +89,8 @@ if st.session_state.messages[-1]["role"] != "assistant":
                         time.sleep(random.randint(1,3))
                         response = responses[prompt]
                 else:
-                        response = generate_response(load+prompt)
+                        # response = generate_response_co(load+prompt)
+                        response = generate_response_oi(load+prompt)
     st.write(response)
     message = {"role": "assistant", "content":response}
     st.session_state.messages.append(message)
