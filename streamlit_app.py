@@ -69,13 +69,11 @@ End of instructions.
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            
-            if prompt in responses:
-                    time.sleep(random.randint(1,3))
-                    response = responses[user_input]
-            else:
-                    response = generate_response(prompt)
-            
-			st.write(response)
-			message = {"role": "assistant", "content":response}
-    		st.session_state.messages.append(message)
+                if prompt in responses:
+                        time.sleep(random.randint(1,3))
+                        response = responses[user_input]
+                else:
+                        response = generate_response(prompt)
+	st.write(response)
+    message = {"role": "assistant", "content":response}
+    st.session_state.messages.append(message)
