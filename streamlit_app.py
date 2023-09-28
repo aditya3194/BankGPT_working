@@ -85,7 +85,7 @@ def generate_response_co(prompt_input):
 		return response.text
 
 def file_uploader():
-      uploaded_file = st.file_uploader('Upload relevant documents')
+      uploaded_file = st.file_uploader('Upload relevant documents',accept_multiple_files=True)
       return uploaded_file
 
 # User-provided prompt
