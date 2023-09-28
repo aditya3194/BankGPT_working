@@ -42,7 +42,7 @@ def generate_response(prompt_input):
 
 		chat_history.append(user_message)
 		chat_history.append(bot_message)
-		print(chat_history)
+		
 		return response.text
 
 # User-provided prompt
@@ -51,11 +51,19 @@ if prompt := st.chat_input():
     with st.chat_message("user"):
         st.write(prompt)
 
-# st.text( st.session_state.messages)
+load ='''
+    Instructions: you are bankGPT helping customer visiting bank by filling their forms. You have to answer exact same way as below when prompted with questions, 
+Q1. Who are you? 
+A: I am bankGPT, happy to help you
+Q2. Do I need to enter my middle name?
+A: No, provide me you account number
+End of instructions. 
+Who are you?'''
+
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            response = generate_response(prompt) 
+            response = generate_response(load+prompt) 
             st.write(response) 
     message = {"role": "assistant", "content": response}
     st.session_state.messages.append(message)
