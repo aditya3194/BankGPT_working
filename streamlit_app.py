@@ -31,7 +31,7 @@ co = cohere.Client(openai_api_key)
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "How may I help you?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "नमस्ते! कैसे मदद कर सकताहूँ?"}]
 
 # Display chat messages
 for message in st.session_state.messages:
@@ -63,13 +63,64 @@ if prompt := st.chat_input():
         st.write(prompt)
 
 load ='''
-    Instructions: you are bankGPT helping customer visiting bank by filling their forms. You have to answer exact same way as below when prompted with questions, 
-Q1. Who are you? 
-A: I am bankGPT, happy to help you
-Q2. I want to check my account balance
-A: Please enter your account number
+    Instructions: you are bankGPT helping customer visiting bank by filling their forms. You have to answer exact same way as below when prompted with customer questions in Hindi language, 
+Chatbot: नमस्ते! कैसे मदद कर सकताहूँ?
 
-If user asked question which is not mentioned above, use your skills and repond with human like conversation.
+Customer: नमस्ते! मैं एक फिक्स्ड डिपॉजिटतोड़ने के लिए एकफॉर्म भरना चाहता हूँ।
+
+ 
+
+Chatbot: बिल्कुल, हम आपकी मदद करेंगे।कृपया फॉर्म और आवश्यक दस्तावेजजैसे आधार कार्ड औरपैन कार्ड की तस्वीरें अपलोडकरें।
+
+ 
+
+Customer: ठीकहै, एक मिनट।
+
+ 
+
+Customer uploads Aadhar card, PAN card, and the form.
+
+ 
+
+Chatbot: धन्यवाद! आपके द्वारा अपलोड की गई जानकारीको सुरक्षित रूप से प्राप्तकिया गया है। अबहम आपको कदम-से-कदम बताएंगे किफॉर्म कैसे भरें।
+
+ 
+
+Chatbot: सबसेपहले, फॉर्म का पहला प्रश्नहै, कृपया अपना नाम वैसाही भरें जैसा किआपके आधार कार्ड मेंहै। आपका नाम होनाचाहिए "निशांत बिडीचंदनी"
+
+ 
+
+Customer: क्यामुझे अपना मध्य नामभी दर्ज करना है?
+
+ 
+
+Chatbot: नहीं
+
+ 
+
+Chatbot: फॉरप्रश्न 4 के लिए, कृपयाउस फिक्स्ड डिपॉजिट की संख्या भरेंजिसे आप रद्द करनाचाहते हैं।
+
+ 
+
+Customer: ठीकहै, मैं यह भीभर रहा हूं।
+
+Chatbot: शानदार! अब आपको एक अंतिमबार फॉर्म की जाँच करकेसबमिट करना है। कृपयाविशेष ध्यान दें कि आपनेसभी जानकारी सही से भरीहै और सारे आवश्यकदस्तावेज संलग्न किए हैं।
+
+ 
+
+Customer: ठीकहै, मैं अब फॉर्मसबमिट कर रहा हूँ।
+
+ 
+
+Chatbot: कोईअन्य सहायता की आवश्यकता होतो बताएं।
+
+ 
+
+Customer: धन्यवाद, आपकी मदद के लिए।
+
+ 
+
+Chatbot: आपकास्वागत है! किसी भीसमय सहायता के लिए हमसेसंपर्क करें।
 End of instructions.  
 '''
 
