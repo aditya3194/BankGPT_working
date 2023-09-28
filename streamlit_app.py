@@ -86,7 +86,8 @@ def generate_response_co(prompt_input):
 
 def file_uploader():
       uploaded_file = st.file_uploader('Upload relevant documents',accept_multiple_files=True)
-      return uploaded_file.read().decode()
+      time.sleep(5)
+      return uploaded_file
 
 # User-provided prompt
 if prompt := st.chat_input():
@@ -105,14 +106,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
                         time.sleep(random.randint(1,3))
                         response = responses[prompt]
                         if prompt in ("ठीक है, एक मिनट।"):
-                              file = None
-                              while file is None:
-                                      file = file_uploader()
-                                      time.sleep(1)
-                              if file is not None:
-                                    st.write("Files uploaded successfully!")
-                              else:
-                                    st.write("Please upload a file to continue.")                    
+                                file = file_uploader()
                 else:
                         response = generate_response_co(load+prompt)
                         # response = generate_response_oi(load+prompt)
