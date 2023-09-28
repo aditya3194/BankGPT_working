@@ -1,7 +1,7 @@
 import streamlit as st
 import cohere
 import random
-
+import time
 
 # App title
 st.set_page_config(page_title="India MoF-WIP")
