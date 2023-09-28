@@ -41,7 +41,7 @@ with st.sidebar:
     #           st.success('Proceed to entering your prompt message!', icon='👉')
 
 
-co = cohere.Client(cohere_api_key)
+# co = cohere.Client(cohere_api_key)
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
