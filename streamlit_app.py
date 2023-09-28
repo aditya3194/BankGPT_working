@@ -84,6 +84,10 @@ def generate_response_co(prompt_input):
 		
 		return response.text
 
+def file_uploader():
+      uploaded_file = st.file_uploader('Upload relevant documents')
+      
+
 # User-provided prompt
 if prompt := st.chat_input():
     st.session_state.messages.append({"role": "user", "content": prompt})
@@ -100,6 +104,8 @@ if st.session_state.messages[-1]["role"] != "assistant":
                 if prompt in responses:
                         time.sleep(random.randint(1,3))
                         response = responses[prompt]
+                        if prompt in ("ठीक है, एक मिनट।"):
+                              file_uploader()
                 else:
                         response = generate_response_co(load+prompt)
                         # response = generate_response_oi(load+prompt)
