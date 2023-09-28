@@ -38,7 +38,7 @@ def generate_response(prompt_input):
 		)
 		user_message = {"user_name": "User", "text": prompt_input}
 		bot_message = {"user_name": "Chatbot", "text": response.text}
-		
+
 
 		chat_history.append(user_message)
 		chat_history.append(bot_message)
@@ -51,7 +51,7 @@ if prompt := st.chat_input():
     with st.chat_message("user"):
         st.write(prompt)
 
-st.text( st.session_state.messages)
+# st.text( st.session_state.messages)
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
