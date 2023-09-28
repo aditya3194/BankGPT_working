@@ -86,7 +86,7 @@ def generate_response_co(prompt_input):
 
 def file_uploader():
       uploaded_file = st.file_uploader('Upload relevant documents',accept_multiple_files=True)
-      return uploaded_file
+      return uploaded_file.read().decode()
 
 # User-provided prompt
 if prompt := st.chat_input():
