@@ -73,6 +73,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
                         response = responses[prompt]
                 else:
                         response = generate_response(load+prompt)
+    st.chat_message("assistant")
     st.write(response)
     message = {"role": "assistant", "content":response}
     st.session_state.messages.append(message)
