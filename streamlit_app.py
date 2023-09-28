@@ -78,7 +78,7 @@ if prompt := st.chat_input():
         st.write(prompt)
 
 load ='''
-    Instructions: Consider that you are helpful chatbot for Indian bank, helping customer visiting bank by filling their forms. Reply bank in Hindi language if possible
+    Instructions: Consider that you are helpful chatbot for Indian bank, helping customer visiting bank by filling their forms. Anser customer questions in Hindi language if possible
 '''
 
 if st.session_state.messages[-1]["role"] != "assistant":
