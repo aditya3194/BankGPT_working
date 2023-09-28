@@ -16,8 +16,9 @@ def clear_history():
 
 with st.sidebar:
 		st.title('India MoF')
-		st.text('c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ')
-		openai_api_key = st.text_input('Cohere API Key')
+		# st.text('c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ')
+		# openai_api_key = st.text_input('Cohere API Key')
+        openai_api_key = 'c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ'
 		st.button('Proceed!')
 		if not (openai_api_key):
 			st.warning('Please enter your credentials!', icon='⚠️')
