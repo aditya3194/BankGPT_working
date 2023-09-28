@@ -40,7 +40,7 @@ for message in st.session_state.messages:
         st.write(message["content"])
 chat_history = []
 
-openai.api_key = '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'
+openai.api_key = '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'
 # OpenAI function
 def generate_response_oi(prompt_input):
         response = openai.ChatCompletion.create(
