@@ -25,14 +25,20 @@ responses = {
 
 with st.sidebar:
        st.title('India MoF')
-    #    st.text('c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ')
-    #    openai_api_key = st.text_input('Cohere API Key')
-       cohere_api_key = 'c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ'
+
+       st.text('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') # OPenAI key
+       openai.api_key = st.text_input('Add your Open AI API Key')
+       
+    #    st.text('c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ') # Cohere Key
+    #    cohere_api_key = st.text_input('Add your Cohere API Key')
+	#    cohere_api_key = 'c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ'
+
        st.button('Proceed!')
-       if not (cohere_api_key):
-              st.warning('Please enter your credentials!', icon='⚠️')
-       else:
-              st.success('Proceed to entering your prompt message!', icon='👉')
+       st.warning('Please enter your credentials and click proceed!', icon='⚠️')
+    #    if not (cohere_api_key):
+    #           st.warning('Please enter your credentials!', icon='⚠️')
+    #    else:
+    #           st.success('Proceed to entering your prompt message!', icon='👉')
 
 
 co = cohere.Client(cohere_api_key)
