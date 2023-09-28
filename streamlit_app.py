@@ -17,20 +17,19 @@ responses = {
 }
 
 with st.sidebar:
-		st.title('India MoF')
-		# st.text('c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ')
-		# openai_api_key = st.text_input('Cohere API Key')
-		cohere_api_key = 'c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ'
-        openai.api_key = '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 
-		st.button('Proceed!')
-		if not (openai_api_key):
-			st.warning('Please enter your credentials!', icon='⚠️')
-		else:
-			st.success('Proceed to entering your prompt message!', icon='👉')
+       st.title('India MoF')
+       st.text('c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ')
+       openai_api_key = st.text_input('Cohere API Key')
+       cohere_api_key = 'c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ'
+       openai.api_key = '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'
+       st.button('Proceed!')
+       if not (openai_api_key):
+              st.warning('Please enter your credentials!', icon='⚠️')
+       else:
+              st.success('Proceed to entering your prompt message!', icon='👉')
+
 
 co = cohere.Client(cohere_api_key)
-
-co = openai.
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
