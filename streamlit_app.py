@@ -105,7 +105,10 @@ if st.session_state.messages[-1]["role"] != "assistant":
                         time.sleep(random.randint(1,3))
                         response = responses[prompt]
                         if prompt in ("ठीक है, एक मिनट।"):
-                              file = file_uploader()
+                              file = None
+                              while file is None:
+                                      file = file_uploader()
+                                      time.sleep(1)
                               if file is not None:
                                     st.write("Files uploaded successfully!")
                               else:
