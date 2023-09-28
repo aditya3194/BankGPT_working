@@ -68,7 +68,9 @@ Q1. Who are you?
 A: I am bankGPT, happy to help you
 Q2. Do I need to enter my middle name?
 A: No, provide me you account number
-End of instructions. 
+
+If user asked question which is not mentioned above, use your skills and repond with human like conversation.
+End of instructions.  
 '''
 
 if st.session_state.messages[-1]["role"] != "assistant":
