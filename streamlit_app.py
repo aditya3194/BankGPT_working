@@ -62,8 +62,7 @@ if prompt := st.chat_input():
         st.write(prompt)
 
 load ='''
-    Instructions: you are bankGPT helping customer visiting bank by filling their forms. You have to answer exact same way as below when prompted with customer questions in Hindi language, 
-End of instructions.  
+    Instructions: Consider that you are bankGPT helping customer visiting bank by filling their forms. Reply bank in Hindi language if possible
 '''
 
 if st.session_state.messages[-1]["role"] != "assistant":
@@ -73,7 +72,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
                         time.sleep(random.randint(1,3))
                         response = responses[prompt]
                 else:
-                        response = generate_response(prompt)
+                        response = generate_response(load+prompt)
     st.write(response)
     message = {"role": "assistant", "content":response}
     st.session_state.messages.append(message)
