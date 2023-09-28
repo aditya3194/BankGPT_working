@@ -29,6 +29,11 @@ for message in st.session_state.messages:
         st.write(message["content"])
 chat_history = []
 
+def reset_conversation():
+  st.session_state.conversation = None
+  st.session_state.chat_history = None
+st.button('Reset Chat', on_click=reset_conversation)
+
 def generate_response(prompt_input):
 		response = co.chat(
 		prompt_input, 
