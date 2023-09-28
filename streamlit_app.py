@@ -6,7 +6,7 @@ import time
 # App title
 st.set_page_config(page_title="India MoF-WIP")
 
-# Define a dictionary of customer inputs and corresponding responses (rule-based)
+# Define a dictionary of user inputs and corresponding responses (rule-based)
 responses = {
     "balance": "Your account balance is $5,000.",
     "transaction history": "You have three recent transactions: \n1. $100 deposit on 2023-09-25 \n2. $50 withdrawal on 2023-09-24 \n3. $200 deposit on 2023-09-23",
@@ -30,7 +30,7 @@ co = cohere.Client(openai_api_key)
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "chatbot", "content": "नमस्ते! कैसे मदद कर सकताहूँ?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "नमस्ते! कैसे मदद कर सकताहूँ?"}]
 
 # Display chat messages
 for message in st.session_state.messages:
@@ -46,27 +46,27 @@ def generate_response(prompt_input):
 		# chat_history= chat_history,
 		temperature=0.3
 		)
-		customer_message = {"customer_name": "customer", "text": prompt_input}
-		bot_message = {"customer_name": "Chatbot", "text": response.text}
+		user_message = {"user_name": "User", "text": prompt_input}
+		bot_message = {"user_name": "Chatbot", "text": response.text}
 
 
-		chat_history.append(customer_message)
+		chat_history.append(user_message)
 		chat_history.append(bot_message)
 		
 		return response.text
 
-# customer-provided prompt
+# User-provided prompt
 if prompt := st.chat_input():
-    st.session_state.messages.append({"role": "customer", "content": prompt})
-    with st.chat_message("customer"):
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
         st.write(prompt)
 
 load ='''
     Instructions: Consider that you are bankGPT helping customer visiting bank by filling their forms. Reply bank in Hindi language if possible
 '''
 
-if st.session_state.messages[-1]["role"] != "chatbot":
-    with st.chat_message("chatbot"):
+if st.session_state.messages[-1]["role"] != "assistant":
+    with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
                 if prompt in responses:
                         time.sleep(random.randint(1,3))
@@ -74,5 +74,5 @@ if st.session_state.messages[-1]["role"] != "chatbot":
                 else:
                         response = generate_response(load+prompt)
     st.write(response)
-    message = {"role": "chatbot", "content":response}
+    message = {"role": "assistant", "content":response}
     st.session_state.messages.append(message)
