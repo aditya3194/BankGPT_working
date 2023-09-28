@@ -2,5 +2,4 @@ cohere
 numpy
 streamlit
 openai
-random
-time
+
