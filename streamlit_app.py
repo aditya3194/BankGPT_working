@@ -1,7 +1,6 @@
 import streamlit as st
-# from hugchat import hugchat
-# from hugchat.login import Login
 import cohere
+import random
 
 
 # App title
@@ -72,6 +71,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
         with st.spinner("Thinking..."):
             
             if prompt in responses:
+                    time.sleep(random.randint(1,3))
                     response = responses[user_input]
             else:
                     response = generate_response(prompt)
