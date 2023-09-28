@@ -21,7 +21,6 @@ with st.sidebar:
     #    st.text('c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ')
     #    openai_api_key = st.text_input('Cohere API Key')
        cohere_api_key = 'c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ'
-       openai.api_key = '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'
        st.button('Proceed!')
        if not (cohere_api_key):
               st.warning('Please enter your credentials!', icon='⚠️')
@@ -41,6 +40,7 @@ for message in st.session_state.messages:
         st.write(message["content"])
 chat_history = []
 
+openai.api_key = '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'
 # OpenAI function
 def generate_response_oi(prompt_input):
         response = openai.ChatCompletion.create(
