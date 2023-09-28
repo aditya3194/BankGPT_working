@@ -108,6 +108,8 @@ if st.session_state.messages[-1]["role"] != "assistant":
                               file = file_uploader()
                               if file is not None:
                                     st.write("Files uploaded successfully!")
+                              else:
+                                    st.write("Please upload a file to continue.")                    
                 else:
                         response = generate_response_co(load+prompt)
                         # response = generate_response_oi(load+prompt)
