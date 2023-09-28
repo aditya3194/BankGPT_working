@@ -71,7 +71,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
         with st.spinner("Thinking..."):
                 if prompt in responses:
                         time.sleep(random.randint(1,3))
-                        response = responses[user_input]
+                        response = responses[prompt]
                 else:
                         response = generate_response(prompt)
     st.write(response)
