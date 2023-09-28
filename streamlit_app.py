@@ -7,6 +7,13 @@ import cohere
 # App title
 st.set_page_config(page_title="India MoF-WIP")
 
+
+def clear_history():
+    st.session_state.history = []
+    st.session_state.messages = []
+    st.session_state.clear_alert()
+
+
 with st.sidebar:
 		st.title('India MoF')
 		st.text('c6pobgap7gKlXOuU29e97W3Q0A2mJhg01hfbWwlJ')
@@ -16,6 +23,8 @@ with st.sidebar:
 			st.warning('Please enter your credentials!', icon='⚠️')
 		else:
 			st.success('Proceed to entering your prompt message!', icon='👉')
+        
+		# st.button('Reset Chat', on_click=reset_conversation)
 
 co = cohere.Client(openai_api_key)
 
