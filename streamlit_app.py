@@ -24,6 +24,16 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #f0f0f0; /* Replace with your desired background color */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 # Define a dictionary of user inputs and corresponding responses (rule-based)
 responses = {
 'नमस्ते! मैं एक फिक्स्ड डिपॉजिट तोड़ने के लिए एक फॉर्म भरना चाहता हूँ। ' : 'बिल्कुल, हम आपकी मदद करेंगे। कृपया फॉर्म और आवश्यक दस्तावेज जैसे आधार कार्ड और पैन कार्ड की तस्वीरें अपलोड करें।' ,
