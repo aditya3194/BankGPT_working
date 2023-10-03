@@ -23,6 +23,23 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+st.markdown(
+    f"""
+    <style>
+        .bottom-right-image {{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 10px;
+        }}
+    </style>
+    <div class="bottom-right-image">
+        <img src="https://github.com/aditya3194/BankGPT_working/raw/ec792ff8b7c28f232f3eb80c915e09d3012cad53/mic.png" width="10" alt="Image" />
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 st.markdown(
     """
     <style>
