@@ -56,8 +56,11 @@ header {
 </style>
 """
 
-# Inject custom CSS into the Streamlit app
+
 st.markdown(whatsapp_css, unsafe_allow_html=True)
+st.header("WhatsApp-like Streamlit App")
+st.markdown("<div class='message'>Hello, how can I help you?</div>", unsafe_allow_html=True)
+st.markdown("<div class='message' style='text-align: right;'>I have a question.</div>", unsafe_allow_html=True)
 # Define a dictionary of user inputs and corresponding responses (rule-based)
 responses = {
 'नमस्ते! मैं एक फिक्स्ड डिपॉजिट तोड़ने के लिए एक फॉर्म भरना चाहता हूँ। ' : 'बिल्कुल, हम आपकी मदद करेंगे। कृपया फॉर्म और आवश्यक दस्तावेज जैसे आधार कार्ड और पैन कार्ड की तस्वीरें अपलोड करें।' ,
