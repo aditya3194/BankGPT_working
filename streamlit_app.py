@@ -9,12 +9,12 @@ st.set_page_config(page_title="India MoF-WIP")
 
 with st.sidebar:
     st.image("https://github.com/aditya3194/BankGPT_working/raw/73b65bed439cb01d6ad477258b1376f5224ee95c/MicrosoftTeams-image%20(1).png", width=100)
-    st.title('India MoF')
+    # st.title('India MoF')
 
 st.markdown(
     f"""
     <style>
-        .top-right-image {{
+        .top-left-image {{
             position: absolute;
             top: 0;
             right: 0;
