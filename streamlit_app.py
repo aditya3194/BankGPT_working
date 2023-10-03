@@ -103,7 +103,7 @@ def file_uploader():
       return uploaded_file
 
 def image_show():
-      st.image("https://raw.githubusercontent.com//aditya3194/BankGPT_working/blob/master/signature.png", caption="Form Preview", use_column_width=True)
+      st.image("https://raw.githubusercontent.com//aditya3194/BankGPT_working/raw/master/signature.png", caption="Form Preview", use_column_width=True)
       
 
 
@@ -127,7 +127,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
                                 file = file_uploader()
                         if prompt in ("फ़ॉर्म में सब कुछ ठीक है।"):
                               file = image_show()
-                              time.sleep(5)
+                            #   time.sleep(5)
                             
                 else:
                         response = generate_response_co(load+prompt)
