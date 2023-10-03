@@ -119,8 +119,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
                 if prompt in responses:
                         time.sleep(random.randint(1,3))
                         response = responses[prompt]
-                        if response in ("बिल्कुल, हम आपकी मदद करेंगे। कृपया फॉर्म और आवश्यक दस्तावेज जैसे आधार कार्ड और पैन कार्ड की तस्वीरें अपलोड करें।"):
-                                file = file_uploader()
+
                         if prompt in ("फ़ॉर्म में सब कुछ ठीक है।"):
                               file = image_show()
                             #   time.sleep(5)
@@ -129,5 +128,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
                         response = generate_response_co(load+prompt)
                         # response = generate_response_oi(load+prompt)
     st.write(response)
+    if response in ("बिल्कुल, हम आपकी मदद करेंगे। कृपया फॉर्म और आवश्यक दस्तावेज जैसे आधार कार्ड और पैन कार्ड की तस्वीरें अपलोड करें।"):
+        file = file_uploader()
     message = {"role": "assistant", "content":response}
     st.session_state.messages.append(message)
