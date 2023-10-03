@@ -35,7 +35,7 @@ st.markdown(
         }}
     </style>
     <div class="bottom-right-image">
-        <img src="https://github.com/aditya3194/BankGPT_working/raw/ec792ff8b7c28f232f3eb80c915e09d3012cad53/mic.png" width="10" alt="Image" />
+        <img src="https://github.com/aditya3194/BankGPT_working/raw/ec792ff8b7c28f232f3eb80c915e09d3012cad53/mic.png" width="50" alt="Image" />
     </div>
     """,
     unsafe_allow_html=True,
