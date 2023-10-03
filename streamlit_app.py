@@ -72,7 +72,7 @@ co = cohere.Client(cohere_api_key)
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "नमस्ते! कैसे मदद कर सकताहूँ?"}]
+    st.session_state.messages = [{"role": "assistant", "content": "नमस्ते!में कैसे मदद कर सकता हूँ?"}]
 
 # Display chat messages
 for message in st.session_state.messages:
