@@ -18,7 +18,7 @@ st.markdown(
         }}
     </style>
     <div class="top-right-image">
-        <img src="https://github.com/aditya3194/BankGPT_working/raw/73b65bed439cb01d6ad477258b1376f5224ee95c/MicrosoftTeams-image%20(1).png" width="100" alt="Image" />
+        <img src="https://github.com/aditya3194/BankGPT_working/raw/73b65bed439cb01d6ad477258b1376f5224ee95c/MicrosoftTeams-image%20(1).png" width="150" alt="Image" />
     </div>
     """,
     unsafe_allow_html=True,
