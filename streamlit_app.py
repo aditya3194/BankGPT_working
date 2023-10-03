@@ -109,7 +109,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
                 if prompt in responses:
                         time.sleep(random.randint(1,3))
                         response = responses[prompt]
-                        if prompt in ("ठीक है, एक मिनट।"):
+                        if prompt in ("ठीक है, एक मिनट। "):
                                 file = file_uploader()
                 else:
                         response = generate_response_co(load+prompt)
