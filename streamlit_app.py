@@ -7,6 +7,9 @@ import openai
 # App title
 st.set_page_config(page_title="India MoF-WIP")
 
+# Display the logo image in the top left corner
+st.image("https://github.com/aditya3194/BankGPT_working/raw/be603d4d2e3f0262fa0b47c7ecfa7b99dac4985e/Kearney.png", use_container_width=False, width=100)
+
 # Define a dictionary of user inputs and corresponding responses (rule-based)
 responses = {
 'नमस्ते! मैं एक फिक्स्ड डिपॉजिट तोड़ने के लिए एक फॉर्म भरना चाहता हूँ। ' : 'बिल्कुल, हम आपकी मदद करेंगे। कृपया फॉर्म और आवश्यक दस्तावेज जैसे आधार कार्ड और पैन कार्ड की तस्वीरें अपलोड करें।' ,
