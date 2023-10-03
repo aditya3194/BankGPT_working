@@ -11,6 +11,23 @@ with st.sidebar:
     st.image("https://github.com/aditya3194/BankGPT_working/raw/73b65bed439cb01d6ad477258b1376f5224ee95c/MicrosoftTeams-image%20(1).png", width=100)
     st.title('India MoF')
 
+st.markdown(
+    f"""
+    <style>
+        .top-right-image {{
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+        }}
+    </style>
+    <div class="top-right-image">
+        <img src="https://github.com/aditya3194/BankGPT_working/raw/73b65bed439cb01d6ad477258b1376f5224ee95c/MicrosoftTeams-image%20(1).png" width="100" alt="Image" />
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
 # Define a dictionary of user inputs and corresponding responses (rule-based)
 responses = {
 'नमस्ते! मैं एक फिक्स्ड डिपॉजिट तोड़ने के लिए एक फॉर्म भरना चाहता हूँ। ' : 'बिल्कुल, हम आपकी मदद करेंगे। कृपया फॉर्म और आवश्यक दस्तावेज जैसे आधार कार्ड और पैन कार्ड की तस्वीरें अपलोड करें।' ,
