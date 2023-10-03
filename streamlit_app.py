@@ -8,8 +8,8 @@ import openai
 st.set_page_config(page_title="India MoF-WIP")
 
 with st.sidebar:
-    st.title('India MoF')
     st.image("https://github.com/aditya3194/BankGPT_working/raw/be603d4d2e3f0262fa0b47c7ecfa7b99dac4985e/Kearney.png", width=100)
+    st.title('India MoF')
 
 # Define a dictionary of user inputs and corresponding responses (rule-based)
 responses = {
