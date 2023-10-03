@@ -103,7 +103,7 @@ def file_uploader():
       return uploaded_file
 
 def image_show():
-      st.image("https://github.com/aditya3194/BankGPT_working/blob/master/signature.png", caption="Form Preview", use_column_width=True)
+      st.image("https://raw.githubusercontent.com//aditya3194/BankGPT_working/blob/master/signature.png", caption="Form Preview", use_column_width=True)
       
 
 
