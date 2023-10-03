@@ -24,16 +24,40 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: #f0f0f0; /* Replace with your desired background color */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+whatsapp_css = """
+<style>
+body {
+    background-color: #e4f8e9; /* Light green background */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #075e54; /* WhatsApp header color */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.message {
+    background-color: #dcf8c6; /* Message bubble background color */
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+</style>
+"""
+
+# Inject custom CSS into the Streamlit app
+st.markdown(whatsapp_css, unsafe_allow_html=True)
 # Define a dictionary of user inputs and corresponding responses (rule-based)
 responses = {
 'नमस्ते! मैं एक फिक्स्ड डिपॉजिट तोड़ने के लिए एक फॉर्म भरना चाहता हूँ। ' : 'बिल्कुल, हम आपकी मदद करेंगे। कृपया फॉर्म और आवश्यक दस्तावेज जैसे आधार कार्ड और पैन कार्ड की तस्वीरें अपलोड करें।' ,
