@@ -103,9 +103,8 @@ def file_uploader():
       return uploaded_file
 
 def image_show():
-      st.image("https://raw.githubusercontent.com//aditya3194/BankGPT_working/raw/master/signature.png", caption="Form Preview", use_column_width=True)
+      st.image("https://github.com/aditya3194/BankGPT_working/raw/f2982346b9cd516fa4063bd03bd7f6503ba10c3c/signature.png", caption="Form Preview", use_column_width=True)
       
-
 
 # User-provided prompt
 if prompt := st.chat_input():
