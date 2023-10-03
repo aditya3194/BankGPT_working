@@ -122,7 +122,7 @@ if st.session_state.messages[-1]["role"] != "assistant":
                 if prompt in responses:
                         time.sleep(random.randint(1,3))
                         response = responses[prompt]
-                        if prompt in ("ठीक है, एक मिनट। "):
+                        if response in ("बिल्कुल, हम आपकी मदद करेंगे। कृपया फॉर्म और आवश्यक दस्तावेज जैसे आधार कार्ड और पैन कार्ड की तस्वीरें अपलोड करें।"):
                                 file = file_uploader()
                         if prompt in ("फ़ॉर्म में सब कुछ ठीक है।"):
                               file = image_show()
