@@ -28,14 +28,14 @@ with st.sidebar:
       st.markdown(
         f"""
         <style>
-            .bottom-right-image {{
+            .bottom-left-image {{
                 position: absolute;
                 bottom: 0;
                 left: 0;
                 padding: 10px;
             }}
         </style>
-        <div class="bottom-right-image">
+        <div class="bottom-left-image">
             <img src="https://github.com/aditya3194/BankGPT_working/raw/ec792ff8b7c28f232f3eb80c915e09d3012cad53/mic.png" width="50" alt="Image" />
         </div>
         """,
