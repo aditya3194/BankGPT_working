@@ -147,7 +147,7 @@ def file_uploader():
       return uploaded_file
 
 def image_show():
-      st.image("https://github.com/aditya3194/BankGPT_working/raw/f2982346b9cd516fa4063bd03bd7f6503ba10c3c/signature.png", caption="Form Preview", use_column_width=True)
+      st.image("https://github.com/aditya3194/BankGPT_working/raw/master/Bank%20Tick.png", caption="Form Preview", use_column_width=True)
       
 
 # User-provided prompt
