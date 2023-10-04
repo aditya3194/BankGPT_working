@@ -6,23 +6,23 @@ import openai
 
 # App title
 st.set_page_config(page_title="India MoF-WIP")
-
-st.markdown(
-    f"""
-    <style>
-        .top-left-image {{
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 10px;
-        }}
-    </style>
-    <div class="top-right-image">
-        <img src="https://github.com/aditya3194/BankGPT_working/raw/73b65bed439cb01d6ad477258b1376f5224ee95c/MicrosoftTeams-image%20(1).png" width="200" alt="Image" />
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+with st.sidebar:
+      st.markdown(
+        f"""
+        <style>
+            .top-left-image {{
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 10px;
+            }}
+        </style>
+        <div class="top-right-image">
+            <img src="https://github.com/aditya3194/BankGPT_working/raw/73b65bed439cb01d6ad477258b1376f5224ee95c/MicrosoftTeams-image%20(1).png" width="200" alt="Image" />
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 
