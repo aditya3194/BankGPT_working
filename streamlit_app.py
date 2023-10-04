@@ -14,6 +14,7 @@ with st.sidebar:
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                top: 0;
             }}
         </style>
         <div class="top-left-image">
