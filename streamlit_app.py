@@ -11,8 +11,6 @@ with st.sidebar:
         f"""
         <style>
             .top-left-image {{
-                position: absolute;
-                padding: 10px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
