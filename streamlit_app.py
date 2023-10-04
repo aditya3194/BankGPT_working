@@ -15,6 +15,9 @@ with st.sidebar:
                 top: 0;
                 left: 0;
                 padding: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }}
         </style>
         <div class="top-right-image">
