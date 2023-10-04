@@ -12,8 +12,6 @@ with st.sidebar:
         <style>
             .top-left-image {{
                 position: absolute;
-                top: 0;
-                left: 0;
                 padding: 10px;
                 display: flex;
                 flex-direction: column;
